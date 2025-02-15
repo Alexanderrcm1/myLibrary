@@ -38,3 +38,40 @@ aside button {
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
 }
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.book-card h1 {
+    font-family: "Kanit";
+    max-width: 100%;
+}
+.book-card h2  {
+    margin: 0.5rem 0;
+    font-size: calc(1rem + 0.3vw);
+}
+
+.book-card p {
+    margin-bottom: 0.5rem;
+    font-size: calc(1rem + 0.3vw);
+}
+
+.read-btn {
+    width: clamp(5rem, 5vw, 8rem);
+    height: clamp(1.5rem, 3vh, 5rem);
+    font-size: calc(0.8rem);
+}
