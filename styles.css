@@ -11,7 +11,7 @@ body {
 .page {
     height: 100vh;
     display: grid;
-    grid-template-rows: calc(3rem + 3vw) calc(2rem + 3vw) 1fr calc(2rem + 0.5vw);
+    grid-template-rows: calc(3rem + 3vw) calc(3rem + 3vw) 1fr calc(2rem + 0.5vw);
     gap: 0.5rem;
 }
 
