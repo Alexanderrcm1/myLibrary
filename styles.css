@@ -109,6 +109,10 @@ main {
     width: clamp(5rem, 5vw, 8rem);
     height: clamp(1.5rem, 3vh, 5rem);
     font-size: calc(0.8rem);
+    border-radius: 3px;
+    border: none;
+    color: #EAEAEA;
+    font-family: "Kanit";
 }
 
 .read-btn:hover {
