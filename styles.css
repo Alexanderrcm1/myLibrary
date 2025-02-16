@@ -76,17 +76,7 @@ main {
     padding: 1rem;
     background-color: #d1d0d0;
 }
-@media screen and (min-width: 728px) {
-    .book-card {
-        max-width: 250px;
-    }
-}
 
-@media screen and (min-width: 928px) {
-    .book-card {
-        max-width: 250px;
-    }
-}
 
 .book-card h1 {
     font-family: "Kanit";
@@ -127,4 +117,97 @@ footer {
     font-size: calc(0.5rem + 0.5vw);
     color: #eeeeee;
     background-color: #2b2b2b;
+}
+
+form {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    border: none;
+    padding: 2rem;
+    width: calc(10rem + 30vw);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    background-color: #2b2b2b;
+    border-radius: 5px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+legend {
+    font-family: "Fjalla One";
+    color: #eeeeee;
+    font-size: calc(1rem + 1vw);
+}
+
+label {
+    font-size: calc(1rem + 0.3vw);
+    font-family: "Fjalla One";
+    color: #eeeeee;
+}
+
+input {
+    height: 1.5rem;
+    width: 15rem;
+    font-size: 1rem;
+    font-family: "Kanit";
+    border-radius: 4px;
+    padding: 0.2rem;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+input:focus {
+    outline-color: #72A0C1;
+}
+
+.read {
+    display: flex;
+    flex-direction: row;
+}
+.read label {
+    font-size: 1rem;
+}
+.read input {
+    width: 1rem;
+    margin: 0 1rem;
+    accent-color: #72A0C1;
+}
+
+#submit-btn {
+    width: 7rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Kanit";
+    font-weight: bold;
+    border-radius: 7px;
+    color: #EAEAEA;
+    background-color: #018749;
+}
+
+@media screen and (min-width: 449px) {
+    form {
+        position: fixed;
+        width: calc(10rem + 20vw);
+    }
+}
+
+@media screen and (min-width: 728px) {
+    .book-card {
+        max-width: 250px;
+    }
+}
+
+@media screen and (min-width: 928px) {
+    .book-card {
+        max-width: 250px;
+    }
 }

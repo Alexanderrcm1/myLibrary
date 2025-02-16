@@ -15,6 +15,30 @@
             <button class="add-book-btn">Add Book</button>
         </aside>
         <main>
+            <form>
+                <legend>New book</legend>
+                <div class="title">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div class="author">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author">
+                </div>
+                <div class="pages">
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages">
+                </div>
+                <div class="read">
+                    <label for="isRead">Read</label>
+                    <input type="radio" name="read" id="isRead" value="Read">
+                    <label for="notRead">Not Read</label>
+                    <input type="radio" name="read" id="notRead" value="Not Read">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Add" id="submit-btn">
+                </div>
+            </form>
         </main>
         <footer>
             <h4>Copyright</h4>

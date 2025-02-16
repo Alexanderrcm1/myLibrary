@@ -10,15 +10,15 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-// const hobbit = new Book("The Hobbit", "JRR TOLKIEN", 234, true);
-// const hp = new Book("HP", "BLA", 434, false);
-// const hc = new Book("HP", "BLA", 434, false);
-// const hb = new Book("HP", "BLA", 434, false);
+const hobbit = new Book("The Hobbit", "JRR TOLKIEN", 234, true);
+const hp = new Book("HP", "BLA", 434, false);
+const hc = new Book("HP", "BLA", 434, false);
+const hb = new Book("HP", "BLA", 434, false);
 
-// library.push(hobbit);
-// library.push(hp);
-// library.push(hc);
-// library.push(hb);
+library.push(hobbit);
+library.push(hp);
+library.push(hc);
+library.push(hb);
 
 library.forEach(book => {
     const div = document.createElement("div");
