@@ -1,5 +1,9 @@
 const main = document.querySelector("main");
+const booksContainer = document.querySelector(".books-container");
 const addBookBtn = document.querySelector(".add-book-btn");
+const form = document.querySelector(".book-form");
+const submitBtn = document.querySelector("#submit-btn");
+const content = document.querySelector(".content");
 
 const library = [];
 
@@ -10,32 +14,69 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-const hobbit = new Book("The Hobbit", "JRR TOLKIEN", 234, true);
-const hp = new Book("HP", "BLA", 434, false);
-const hc = new Book("HP", "BLA", 434, false);
-const hb = new Book("HP", "BLA", 434, false);
+const ShowForm = () => {
+    if (form.style.display == "" || form.style.display == "none") {
+        form.style.display = "flex"; 
+    } else {
+        form.style.display = "none"; 
+    }
+};
 
-library.push(hobbit);
-library.push(hp);
-library.push(hc);
-library.push(hb);
 
-library.forEach(book => {
-    const div = document.createElement("div");
-    div.classList.add("book-card");
-    div.innerHTML = `
-    <h1>${book.title}</h1>
-    <h2>${book.author}</h2>
-    <p>${book.pages} pages</p>
-    <button class="read-btn">${book.isRead ? "Read" : "Not Read"}</button>
-    `
-    main.appendChild(div);
-})
+const ResetForm = () => {
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
+    document.querySelector("#pages").value = "";
+    document.querySelectorAll('input[name="read"]').forEach(radio => (radio.checked = false));
+    form.style.display = "none";
+};
 
-const readBtn = document.querySelectorAll(".read-btn");
+
+const GetBookInfo = () => {
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value
+    const radio = document.querySelector('input[name="read"]:checked').value == "true" ? true : false;
+
+    return {title, author, pages, radio};
+};
+
+const AddBook = () => {
+    const b = GetBookInfo();
+    if (!b.title || !b.author || !b.pages || b.radio === undefined) {
+        alert("Please fill in all fields.");
+        return;
+    }
+    const book = new Book(b.title, b.author, b.pages, b.radio);
+    library.push(book);
+    console.log(book)
+
+    ResetForm();
+    ShowBooks();
+}
+
+
+function ShowBooks() {
+    booksContainer.innerHTML = "";
+    
+    library.forEach(book => {
+        const div = document.createElement("div");
+        div.classList.add("book-card");
+        div.innerHTML = `
+        <h1>${book.title}</h1>
+        <h2>${book.author}</h2>
+        <p>${book.pages} pages</p>
+        <button class="read-btn">${book.isRead ? "Read" : "Not Read"}</button>
+        `
+        booksContainer.appendChild(div);
+    })
+
+    ReadBtnClicker();
+    ReadBtnStyler();
+}
 
 ReadBtnStyler= () => {
-    readBtn.forEach(btn => {
+    document.querySelectorAll(".read-btn").forEach(btn => {
         if (btn.innerText == "Read") {
             btn.style.backgroundColor = "#018749";
         } else {
@@ -45,7 +86,7 @@ ReadBtnStyler= () => {
 }
 
 ReadBtnClicker = () => {
-    readBtn.forEach(btn => {
+    document.querySelectorAll(".read-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             btn.innerText = btn.innerText == "Read" ? "Not Read" : "Read"
             ReadBtnStyler();
@@ -53,6 +94,6 @@ ReadBtnClicker = () => {
     });
 };
 
-ReadBtnClicker();
+submitBtn.addEventListener("click", AddBook);
 
-ReadBtnStyler();
+addBookBtn.addEventListener("click", ShowForm);
