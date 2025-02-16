@@ -4,10 +4,15 @@
     padding: 0;
 }
 
+body {
+    background-color: #eeeeee;
+}
+
 .page {
     height: 100vh;
     display: grid;
-    grid-template-rows: calc(3rem + 3vw) calc(2rem + 3vw) 1fr ;
+    grid-template-rows: calc(3rem + 3vw) calc(2rem + 3vw) 1fr calc(2rem + 0.5vw);
+    gap: 0.5rem;
 }
 
 header {
@@ -15,12 +20,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #2b2b2b;
 }
 header h1 {
     font-size: calc(1rem + 3vw);
     flex-grow: 1;
     text-align: center;
     font-family: "Kanit";
+    color: #EAEAEA;
 }
 
 aside {
@@ -34,14 +41,17 @@ aside button {
     height: calc(1rem + 3vh);
     font-size: calc(0.7rem + 1vw);
     font-family:"Kanit";
-    border: 1px solid black;
+    border: 1px solid #2b2b2b;
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
+    background-color:#2b2b2b;
+    color: #eeeeee;
 }
 
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 1fr 1fr;
     gap: 1rem;
     padding: 1rem;
 }
@@ -51,18 +61,21 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid rgb(196, 194, 194);
     border-radius: 5px;
     padding: 1rem;
+    background-color: #d1d0d0;
 }
 
 .book-card h1 {
     font-family: "Kanit";
     max-width: 100%;
+    color: #2b2b2b;
 }
 .book-card h2  {
     margin: 0.5rem 0;
     font-size: calc(1rem + 0.3vw);
+    color: #3c3c3c;
 }
 
 .book-card p {
@@ -74,4 +87,14 @@ main {
     width: clamp(5rem, 5vw, 8rem);
     height: clamp(1.5rem, 3vh, 5rem);
     font-size: calc(0.8rem);
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Pacifico";
+    font-size: calc(0.5rem + 0.5vw);
+    color: #eeeeee;
+    background-color: #2b2b2b;
 }
