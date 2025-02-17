@@ -22,7 +22,6 @@ const ShowForm = () => {
     }
 };
 
-
 const ResetForm = () => {
     document.querySelector("#title").value = "";
     document.querySelector("#author").value = "";
@@ -31,48 +30,41 @@ const ResetForm = () => {
     form.style.display = "none";
 };
 
-
-const GetBookInfo = () => {
+const AddBookToLibrary = () => {
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value
     const radio = document.querySelector('input[name="read"]:checked').value == "true" ? true : false;
 
-    return {title, author, pages, radio};
-};
-
-const AddBook = () => {
-    const b = GetBookInfo();
-    if (!b.title || !b.author || !b.pages || b.radio === undefined) {
-        alert("Please fill in all fields.");
-        return;
-    }
-    const book = new Book(b.title, b.author, b.pages, b.radio);
+    const book = new Book(title, author, pages, radio);
     library.push(book);
     console.log(book)
 
     ResetForm();
-    ShowBooks();
+    UpdatePage();
 }
 
-
-function ShowBooks() {
+const UpdatePage = () => {
     booksContainer.innerHTML = "";
     
-    library.forEach(book => {
+    for (let i = 0; i < library.length; i++) {
+        let book = library[i];
         const div = document.createElement("div");
         div.classList.add("book-card");
         div.innerHTML = `
-        <h1>${book.title}</h1>
+        <div class="top-card-div">
+            <h1>${book.title}</h1>
+            <button class="x-btn" onclick="RemoveBook(${i})">X</button>
+        </div>
         <h2>${book.author}</h2>
         <p>${book.pages} pages</p>
         <button class="read-btn">${book.isRead ? "Read" : "Not Read"}</button>
         `
         booksContainer.appendChild(div);
-    })
-
+    }
     ReadBtnClicker();
     ReadBtnStyler();
+
 }
 
 ReadBtnStyler= () => {
@@ -94,6 +86,11 @@ ReadBtnClicker = () => {
     });
 };
 
-submitBtn.addEventListener("click", AddBook);
+const RemoveBook = (index) => {
+    library.splice(index, 1)
+    UpdatePage();
+}
+
+submitBtn.addEventListener("click", AddBookToLibrary);
 
 addBookBtn.addEventListener("click", ShowForm);

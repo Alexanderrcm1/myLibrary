@@ -200,6 +200,26 @@ input:focus {
     border: none;
 }
 
+.top-card-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.x-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    color: #D2122E;
+    font-weight: bold;
+    font-size: calc(1rem + 0.5vw);
+    font-family: "Kanit";
+}
+
 @media screen and (min-width: 449px) {
     form {
         width: calc(10rem + 20vw);
